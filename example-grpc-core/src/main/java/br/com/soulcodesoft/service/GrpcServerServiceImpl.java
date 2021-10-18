@@ -20,32 +20,12 @@ public class GrpcServerServiceImpl implements GrpcServerService {
         this.server = server;
     }
 
-    public void start() throws InterruptedException {
+    public void start() {
         try {
             this.server.start();
             LOGGER.info("gRPC Online, Escutando Porta: " + this.port);
-//            GrpcServerServiceImpl.this.blockUntilShutdown();
-//            Thread thread = new Thread(() -> {
-//                try {
-//                    GrpcServerServiceImpl.this.stop();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace(System.err);
-//                }
-//            });
-//            Runtime.getRuntime().addShutdownHook(thread);
         } catch (IOException e) {
             LOGGER.log(Level.WARNING, "Ocoreeu um erro ao finalizar o serviço", e);
-        }
-    }
-
-    private void stop() throws InterruptedException {
-        if (this.server != null) {
-            this.server.shutdown().awaitTermination();
-        }
-    }
-    private void blockUntilShutdown() throws InterruptedException {
-        if (this.server != null) {
-            this.server.awaitTermination();
         }
     }
 }
