@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.soulcodesoft.protoentity";
+option java_outer_classname = "Contact";
+
+package contact;
+
+import "proto/contact/telephone.proto";
+
+message ContactMessage {
+
+  string name = 1;
+  TypeContact type = 2;
+  repeated TelephoneMessage telephones = 3;
+
+  enum TypeContact {
+    AMIGO = 0;
+    COMERCIAL = 1;
+    TRABALHO = 2;
+  }
+
+}

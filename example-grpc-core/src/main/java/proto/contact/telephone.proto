@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.soulcodesoft.protoentity";
+option java_outer_classname = "Telephone";
+
+package contact;
+
+message TelephoneMessage {
+
+  string number = 1;
+  TypeNumber type = 2;
+
+  enum TypeNumber {
+     CELULAR = 0;
+     RESIDENCIAL = 1;
+     TRABALHO = 2;
+  }
+
+}

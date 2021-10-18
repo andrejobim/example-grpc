@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.soulcodesoft.protoservice";
+option java_outer_classname = "PhoneBook";
+
+package service;
+
+import "proto/contact/contact.proto";
+
+service PhoneBookService {
+
+  rpc recordContactSimpleRpc(contact.ContactMessage) returns(contact.ContactMessage){};
+
+  rpc recordContactServerStream(contact.ContactMessage) returns(stream contact.ContactMessage){};
+
+  rpc recordContactClientStream(stream contact.ContactMessage) returns(contact.ContactMessage){};
+
+  rpc recordContactBidirecionalStream(stream contact.ContactMessage) returns(stream contact.ContactMessage){};
+
+
+}
